@@ -15,7 +15,9 @@ HEADER = so_long.h
 
 LIBFT = libft/libft.a
 
-MiniLibX = minilibx-linux/libmlx.a
+MiniLibX = minilibx-linux
+
+MiniLibX_exec = minilibx-linux/libmlx.a
 
 OBJ = $(SRC:.c=.o)
 
@@ -27,10 +29,10 @@ YELLOW = \033[0;33m
 PURPLE = \033[0;35m
 NC = \033[0m # No Color
 
-all: $(NAME)
+all: $(MiniLibX_exec) $(NAME)
 
-$(NAME): $(OBJ) $(HEADER) $(LIBFT) $(MiniLibX)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(MiniLibX) -lXext -lX11 -lm
+$(NAME): $(OBJ) $(HEADER) $(LIBFT) $(MiniLibX_exec)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(MiniLibX_exec) -lXext -lX11 -lm
 	@echo "$(GREEN)			*----------------------------------*\n \
 				|        [OK] $(NAME) created      |\n \
 				*----------------------------------*$(NC)"
@@ -45,10 +47,14 @@ $(LIBFT):
 				*----------------------------------*$(NC)"
 
 $(MiniLibX):
+	@git clone https://github.com/42Paris/minilibx-linux.git $@
+
+$(MiniLibX_exec): $(MiniLibX)
 	@make -s -C minilibx-linux
 	@echo "$(CYAN)			*----------------------------------*\n \
 				|        [OK] MiniLibX created     |\n \
 				*----------------------------------*$(NC)"
+	
 
 clean:
 	@rm -f $(OBJ)
