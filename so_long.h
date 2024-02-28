@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:50:25 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/12 19:53:59 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:58:46 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ typedef struct s_mlx
 }					t_mlx;
 
 int					ft_check_one_extension(char *map);
-void				ft_error_and_free(char *line, int fd);
+void				ft_error_and_free(char *line, int fd, int flag);
 void				ft_map_flood_error(char **map_dup, char **map_tab);
-void				ft_error(void);
+void				ft_error(int flag);
 int					ft_on_destroy(t_mlx *data);
 int					ft_is_dead(t_mlx **data);
 void				ft_free_img(t_mlx *data, int i);

@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:19:38 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/12 10:23:21 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:55:58 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ char	**ft_parse_map(char *map)
 	ft_check_map(map);
 	map_tab = ft_calloc((ft_map_len(map) + 1), sizeof(char *));
 	if (!map_tab)
-		ft_error();
+		ft_error(2);
 	i = 0;
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
-		ft_error();
+		ft_error(1);
 	line = get_next_line(fd, 0);
 	while (line)
 	{

@@ -64,6 +64,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -rf $(MiniLibX)
 	@make -s fclean -C libft
 	@echo "$(PURPLE)[OK] so_long fclean completed$(NC)"
 

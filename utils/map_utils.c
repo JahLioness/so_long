@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:06:41 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/12 11:40:58 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/02/28 16:06:26 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_map_len(char *map)
 	fd = open(map, O_RDONLY);
 	line = get_next_line(fd, 0);
 	if (!line)
-		ft_error_and_free(line, fd);
+		ft_error_and_free(line, fd, 3);
 	while (line)
 	{
 		free(line);

@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:50:38 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/12 11:37:48 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/02/28 16:05:11 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	ft_check_map_player(char *map)
 	player = 0;
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
-		ft_error();
+		ft_error(1);
 	line = get_next_line(fd, 0);
 	if (!line)
-		ft_error_and_free(line, fd);
+		ft_error_and_free(line, fd, 3);
 	while (line)
 	{
 		i = -1;
@@ -38,7 +38,7 @@ void	ft_check_map_player(char *map)
 	free(line);
 	close(fd);
 	if (player != 1)
-		ft_error();
+		ft_error(0);
 }
 
 void	ft_check_map_exit(char *map)
@@ -51,10 +51,10 @@ void	ft_check_map_exit(char *map)
 	exit = 0;
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
-		ft_error();
+		ft_error(1);
 	line = get_next_line(fd, 0);
 	if (!line)
-		ft_error_and_free(line, fd);
+		ft_error_and_free(line, fd, 3);
 	while (line)
 	{
 		i = -1;
@@ -67,7 +67,7 @@ void	ft_check_map_exit(char *map)
 	free(line);
 	close(fd);
 	if (exit != 1)
-		ft_error();
+		ft_error(0);
 }
 
 int	ft_check_map_collectible(char *map)
@@ -80,10 +80,10 @@ int	ft_check_map_collectible(char *map)
 	collectible = 0;
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
-		ft_error();
+		ft_error(1);
 	line = get_next_line(fd, 0);
 	if (!line)
-		ft_error_and_free(line, fd);
+		ft_error_and_free(line, fd, 3);
 	while (line)
 	{
 		i = -1;
@@ -106,10 +106,10 @@ int	ft_check_ennemies(char *map)
 	ennemies = 0;
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
-		ft_error();
+		ft_error(1);
 	line = get_next_line(fd, 0);
 	if (!line)
-		ft_error_and_free(line, fd);
+		ft_error_and_free(line, fd, 3);
 	while (line)
 	{
 		i = -1;

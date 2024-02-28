@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:47:07 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/12 12:04:15 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/02/28 16:07:10 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int	main(int ac, char **av, char **envp)
 	t_mlx	*data;
 
 	if (ac != 2)
-		return (ft_putstr_fd("Error, you must input ONE arg\n", 2), 0);
+		return (ft_putstr_fd("Error : you must input ONE arg\n", 2), 0);
 	if (!envp[0])
-		return (ft_putstr_fd("Error, env variables needed\n", 2), 0);
+		return (ft_putstr_fd("Error : env variables needed\n", 2), 0);
 	if (ft_strncmp(av[1] + ft_strlen(av[1]) - 4, ".ber", 4)
 		|| !ft_check_one_extension(av[1]))
-		return (ft_putstr_fd("Error you must input an .ber file\n", 2), 0);
+		return (ft_error(1), 0);
 	if (!ft_check_map_size(av[1]))
-		return (ft_putstr_fd("Error map is too big\n", 2), 0);
+		return (ft_error(0), 0);
 	map_tab = ft_parse_map(av[1]);
 	if (!map_tab)
 		return (0);

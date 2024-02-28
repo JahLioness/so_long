@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:55:59 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/12 11:17:45 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:55:25 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_free_data(t_mlx *data)
 		free(data->mlx);
 	if (data)
 		free(data);
-	ft_error();
+	ft_error(2);
 }
 
 void	ft_free_img(t_mlx *data, int i)
