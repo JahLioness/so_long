@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:00:22 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/28 16:05:53 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:14:56 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,7 @@ int	ft_check_map_is_rectangle(char *map)
 	i = 0;
 	while (line)
 	{
-		if (i == ft_map_len(map) - 1 && (ft_strlen(line) != (len)
-				&& ft_strlen(line) != (len - 1)))
+		if (i == ft_map_len(map) - 1 && ft_strlen(line) != (len - 1))
 			ft_error_and_free(line, fd, 0);
 		else if (i != ft_map_len(map) - 1 && ft_strlen(line) != len)
 			ft_error_and_free(line, fd, 0);
@@ -112,8 +111,8 @@ int	ft_check_map_is_rectangle(char *map)
 void	ft_check_map(char *map)
 {
 	ft_check_map_char(map);
-	ft_check_map_wall(map);
 	ft_check_map_is_rectangle(map);
+	ft_check_map_wall(map);
 	ft_check_map_player(map);
 	ft_check_map_exit(map);
 	if (!ft_check_map_collectible(map))
