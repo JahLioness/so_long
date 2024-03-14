@@ -15,7 +15,7 @@ HEADER = so_long.h
 
 LIBFT = libft/libft.a
 
-MiniLibX = minilibx-linux
+Mlx = minilibx-linux
 
 MiniLibX_exec = minilibx-linux/libmlx.a
 
@@ -29,7 +29,7 @@ YELLOW = \033[0;33m
 PURPLE = \033[0;35m
 NC = \033[0m # No Color
 
-all: $(MiniLibX_exec) $(NAME)
+all: $(Mlx) $(NAME)
 
 $(NAME): $(OBJ) $(HEADER) $(LIBFT) $(MiniLibX_exec)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(MiniLibX_exec) -lXext -lX11 -lm
@@ -46,15 +46,15 @@ $(LIBFT):
 				|        [OK] LIBFT created        |\n \
 				*----------------------------------*$(NC)"
 
-$(MiniLibX):
-	@git clone https://github.com/42Paris/minilibx-linux.git $@
+# minilibx-linux:
+# 	@git clone https://github.com/42Paris/minilibx-linux.git $@
 
-$(MiniLibX_exec): $(MiniLibX)
-	@make -s -C minilibx-linux
+$(Mlx):
+	@git clone https://github.com/42Paris/minilibx-linux.git $@
+	@make -C $@
 	@echo "$(CYAN)			*----------------------------------*\n \
 				|        [OK] MiniLibX created     |\n \
-				*----------------------------------*$(NC)"
-	
+				*----------------------------------*$(NC)"	
 
 clean:
 	@rm -f $(OBJ)
@@ -64,7 +64,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -rf $(MiniLibX)
+	@rm -rf minilibx-linux
 	@make fclean -C libft
 	@echo "$(PURPLE)[OK] so_long fclean completed$(NC)"
 
