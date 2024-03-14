@@ -32,7 +32,7 @@ NC = \033[0m # No Color
 all: $(MiniLibX_exec) $(NAME)
 
 $(NAME): $(OBJ) $(HEADER) $(LIBFT) $(MiniLibX_exec)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(MiniLibX_exec) -lXext -lX11 -lm
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(MiniLibX_exec) -lXext -lX11 -lm
 	@echo "$(GREEN)			*----------------------------------*\n \
 				|        [OK] $(NAME) created      |\n \
 				*----------------------------------*$(NC)"
@@ -41,7 +41,7 @@ $(NAME): $(OBJ) $(HEADER) $(LIBFT) $(MiniLibX_exec)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-	@make -s -C libft
+	@make -C libft
 	@echo "$(BLUE)			*----------------------------------*\n \
 				|        [OK] LIBFT created        |\n \
 				*----------------------------------*$(NC)"
@@ -58,14 +58,14 @@ $(MiniLibX_exec): $(MiniLibX)
 
 clean:
 	@rm -f $(OBJ)
-	@make -s clean -C libft
-	@make -s clean -C minilibx-linux
+	@make clean -C libft
+	@make clean -C minilibx-linux
 	@echo "$(YELLOW)[OK] so_long clean completed$(NC)"
 
 fclean: clean
 	@rm -f $(NAME)
 	@rm -rf $(MiniLibX)
-	@make -s fclean -C libft
+	@make fclean -C libft
 	@echo "$(PURPLE)[OK] so_long fclean completed$(NC)"
 
 re: fclean all
