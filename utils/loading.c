@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:50:16 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/13 11:45:10 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:05:13 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_put_img(t_mlx *data, t_img *img)
 				* 60) - img->width) / 2, ((data->map->height * 60)
 			- img->height) / 2);
 	mlx_do_sync(data->mlx);
-	sleep(1);
+	usleep(500 * 1000);
 	mlx_destroy_image(data->mlx, img->img);
 	free(img);
 }
