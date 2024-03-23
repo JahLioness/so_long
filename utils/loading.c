@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:50:16 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/03/15 18:05:13 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:20:56 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int	ft_loading(t_mlx *data)
 	ft_put_img(data, img);
 	img = ft_init_img(data, "./assets/screen/Loading6.xpm");
 	ft_put_img(data, img);
-	return (1);
+	data->ready = 1;
+	return (0);
 }

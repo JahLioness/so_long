@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:54:36 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/06 16:26:08 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:46:35 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ int	ft_move_player(int keycode, t_mlx **data)
 {
 	char	*str;
 
+	if ((*data)->ready == 0)
+		return (0);
 	if (keycode == 119 || keycode == 65362)
 		ft_move_player_up(data);
 	if (keycode == 115 || keycode == 65364)

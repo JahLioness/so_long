@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:55:59 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/28 15:55:25 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:20:50 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ t_mlx	*ft_init_data(char *map, char **map_tab)
 	data = ft_calloc(1, sizeof(t_mlx));
 	if (!data)
 		return (NULL);
+	data->ready = 0;
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		return (ft_free_data(data), NULL);

@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:35:49 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/12 19:55:47 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:20:23 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	ft_start_display(t_mlx *data)
 
 void	ft_display_map(t_mlx *data)
 {
-	ft_loading(data);
 	ft_start_display(data);
 	mlx_hook(data->win, KeyPress, KeyPressMask, &ft_move_player, &data);
 	mlx_hook(data->win, DestroyNotify, StructureNotifyMask, &ft_on_destroy,

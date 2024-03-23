@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:47:07 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/28 16:07:10 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:51:40 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av, char **envp)
 		return (0);
 	ft_check_map_flood(map_tab);
 	data = ft_init_data(av[1], map_tab);
+	ft_loading(data);
 	ft_display_map(data);
 	if (map_tab)
 		ft_free_split(ft_map_len(av[1]), map_tab);
