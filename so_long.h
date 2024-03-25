@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:50:25 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/03/23 12:20:52 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/25 10:07:36 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct s_mlx
 	void			*mlx;
 	void			*win;
 	int				ready;
-	t_img			*img[7];
+	t_img			*img[13];
 	t_map			*map;
 	t_element		*vilain;
 	t_element		*exit;

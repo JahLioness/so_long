@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:54:36 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/03/23 12:46:35 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/25 09:50:00 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	ft_move_player_right(t_mlx **data)
 	y = (*data)->player->y;
 	if ((*data)->map->map_tab[y][x + 1] == '1')
 		return ;
-	mlx_destroy_image((*data)->mlx, (*data)->img[3]->img);
-	free((*data)->img[3]);
 	if ((*data)->player->x != (*data)->exit->x
 		|| (*data)->player->y != (*data)->exit->y)
 		mlx_put_image_to_window((*data)->mlx, (*data)->win,
@@ -41,8 +39,6 @@ void	ft_move_player_left(t_mlx **data)
 	y = (*data)->player->y;
 	if ((*data)->map->map_tab[y][x - 1] == '1')
 		return ;
-	mlx_destroy_image((*data)->mlx, (*data)->img[3]->img);
-	free((*data)->img[3]);
 	if ((*data)->player->x != (*data)->exit->x
 		|| (*data)->player->y != (*data)->exit->y)
 		mlx_put_image_to_window((*data)->mlx, (*data)->win,
@@ -61,8 +57,6 @@ void	ft_move_player_up(t_mlx **data)
 	y = (*data)->player->y;
 	if ((*data)->map->map_tab[y - 1][x] == '1')
 		return ;
-	mlx_destroy_image((*data)->mlx, (*data)->img[3]->img);
-	free((*data)->img[3]);
 	if ((*data)->player->x != (*data)->exit->x
 		|| (*data)->player->y != (*data)->exit->y)
 		mlx_put_image_to_window((*data)->mlx, (*data)->win,
@@ -81,8 +75,6 @@ void	ft_move_player_down(t_mlx **data)
 	y = (*data)->player->y;
 	if ((*data)->map->map_tab[y + 1][x] == '1')
 		return ;
-	mlx_destroy_image((*data)->mlx, (*data)->img[3]->img);
-	free((*data)->img[3]);
 	if ((*data)->player->x != (*data)->exit->x
 		|| (*data)->player->y != (*data)->exit->y)
 		mlx_put_image_to_window((*data)->mlx, (*data)->win,

@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:00:22 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/28 18:14:56 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/25 10:04:05 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	ft_check_map_wall(char *map)
 		line = get_next_line(fd, 0);
 		i++;
 	}
-	return (free(line), close(fd), 1);
+	return (free(line), close(fd), 0);
 }
 
 int	ft_check_map_is_rectangle(char *map)

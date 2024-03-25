@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 11:50:32 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/09 13:10:57 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/25 09:40:17 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_on_destroy(t_mlx *data)
 	int	i;
 
 	i = 0;
-	while (i < 7)
+	while (i < 13)
 	{
 		mlx_destroy_image(data->mlx, data->img[i]->img);
 		free(data->img[i]);
@@ -41,9 +41,9 @@ int	ft_is_dead(t_mlx **data)
 	if ((*data)->player->c == 0)
 	{
 		mlx_put_image_to_window((*data)->mlx, (*data)->win,
-			(*data)->img[6]->img, (((*data)->map->width * 60)
-				- (*data)->img[6]->width) / 2, (((*data)->map->height * 60)
-				- (*data)->img[6]->height) / 2);
+			(*data)->img[11]->img, (((*data)->map->width * 60)
+				- (*data)->img[11]->width) / 2, (((*data)->map->height * 60)
+				- (*data)->img[11]->height) / 2);
 		mlx_do_sync((*data)->mlx);
 		sleep(2);
 		ft_on_destroy(*data);

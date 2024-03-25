@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:35:49 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/03/23 12:20:23 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/25 09:34:08 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	ft_deal_display(t_mlx *data, int i, int j)
 		mlx_put_image_to_window(data->mlx, data->win, data->img[3]->img, (j
 				* 60), (i * 60));
 	else if (data->map->map_tab[i][j] == 'E')
-		mlx_put_image_to_window(data->mlx, data->win, data->img[4]->img, (j
+		mlx_put_image_to_window(data->mlx, data->win, data->img[9]->img, (j
 				* 60), (i * 60));
 	else if (data->map->map_tab[i][j] == 'V')
-		mlx_put_image_to_window(data->mlx, data->win, data->img[5]->img, (j
+		mlx_put_image_to_window(data->mlx, data->win, data->img[10]->img, (j
 				* 60), (i * 60));
 }
 

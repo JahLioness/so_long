@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:19:38 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/28 15:55:58 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/25 09:57:42 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ t_size	*ft_init_size(char *line, void *mlx)
 	size->height_len = 0;
 	size->line_len = ft_strlen(line);
 	mlx_get_screen_size(mlx, &size->screen_width, &size->screen_height);
+	if (!size->screen_width || !size->screen_height)
+		return (free(size), NULL);
 	return (size);
 }
 
@@ -39,7 +41,7 @@ int	ft_check_map_size(char *map)
 	mlx = mlx_init();
 	size = ft_init_size(line, mlx);
 	if (!size)
-		return (free(mlx), free(line), close(fd), 0);
+		return (free(mlx), free(line), close(fd), 1);
 	while (line)
 	{
 		size->height_len++;
@@ -49,9 +51,9 @@ int	ft_check_map_size(char *map)
 	if ((size->line_len * 60) > size->screen_width || (size->height_len
 			* 60) > size->screen_height)
 		return (free(size), free(line), close(fd), mlx_destroy_display(mlx),
-			free(mlx), 0);
+			free(mlx), 1);
 	return (free(size), free(line), close(fd), mlx_destroy_display(mlx),
-		free(mlx), 1);
+		free(mlx), 0);
 }
 
 char	**ft_parse_map(char *map)
