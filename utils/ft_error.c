@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:53:23 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/02/28 16:03:49 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/26 22:10:59 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,14 @@ void	ft_map_flood_error(char **map_dup, char **map_tab)
 	ft_free_split(ft_tab_len(map_dup), map_dup);
 	ft_free_split(ft_tab_len(map_tab), map_tab);
 	ft_error(0);
+}
+
+void	ft_map_size_error(char *line, int fd, void *mlx, int flag)
+{
+	free(line);
+	close(fd);
+	mlx_destroy_display(mlx);
+	free(mlx);
+	if (flag)
+		ft_error(0);
 }

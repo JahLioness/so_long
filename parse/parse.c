@@ -6,24 +6,21 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:19:38 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/03/25 09:57:42 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/26 22:12:04 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-t_size	*ft_init_size(char *line, void *mlx)
+t_size	ft_init_size(char *line, void *mlx)
 {
-	t_size	*size;
+	t_size	size;
 
-	size = ft_calloc(1, sizeof(t_size));
-	if (!size)
-		return (NULL);
-	size->height_len = 0;
-	size->line_len = ft_strlen(line);
-	mlx_get_screen_size(mlx, &size->screen_width, &size->screen_height);
-	if (!size->screen_width || !size->screen_height)
-		return (free(size), NULL);
+	size.height_len = 0;
+	size.line_len = ft_strlen(line);
+	mlx_get_screen_size(mlx, &size.screen_width, &size.screen_height);
+	if (size.screen_width < 0 || size.screen_height < 0)
+		ft_error(2);
 	return (size);
 }
 
@@ -32,28 +29,28 @@ int	ft_check_map_size(char *map)
 	int		fd;
 	void	*mlx;
 	char	*line;
-	t_size	*size;
+	t_size	size;
 
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
-		return (0);
+		return (1);
 	line = get_next_line(fd, 0);
+	if (!line)
+		return (ft_error_and_free(line, fd, 3), 1);
 	mlx = mlx_init();
+	if (!mlx)
+		return (ft_error_and_free(line, fd, 2), 1);
 	size = ft_init_size(line, mlx);
-	if (!size)
-		return (free(mlx), free(line), close(fd), 1);
 	while (line)
 	{
-		size->height_len++;
+		size.height_len++;
 		free(line);
 		line = get_next_line(fd, 0);
 	}
-	if ((size->line_len * 60) > size->screen_width || (size->height_len
-			* 60) > size->screen_height)
-		return (free(size), free(line), close(fd), mlx_destroy_display(mlx),
-			free(mlx), 1);
-	return (free(size), free(line), close(fd), mlx_destroy_display(mlx),
-		free(mlx), 0);
+	if ((size.line_len * 60) > size.screen_width || (size.height_len
+			* 60) > size.screen_height)
+		return (ft_map_size_error(line, fd, mlx, 1), 1);
+	return (ft_map_size_error(line, fd, mlx, 0), 0);
 }
 
 char	**ft_parse_map(char *map)

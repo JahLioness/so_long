@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 11:28:57 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/03/25 09:49:36 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/26 21:57:47 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ void	ft_check_exit(t_mlx **data)
 		(*data)->exit->c = 1;
 	if ((*data)->exit->c == 1)
 		mlx_put_image_to_window((*data)->mlx, (*data)->win,
-			(*data)->img[12]->img, (*data)->exit->x * 60, (*data)->exit->y * 60);
+			(*data)->img[12]->img, (*data)->exit->x * 60, (*data)->exit->y
+			* 60);
 	if ((*data)->player->x == (*data)->exit->x
 		&& (*data)->player->y == (*data)->exit->y && (*data)->exit->c == 1)
 		ft_on_destroy((*data));

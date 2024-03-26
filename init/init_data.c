@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:55:59 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/03/25 09:43:30 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/03/26 21:57:34 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ int	ft_init_data_img(t_mlx *data)
 	data->img[6] = ft_init_img(data, "./assets/perso/sukuna_frevert.xpm");
 	if (!data->img[6])
 		return (ft_free_img(data, 6), ft_free_data(data), 1);
-	data->img[7] = ft_init_img(data, "./assets/perso/yuji_portal_inactivate.xpm");
+	data->img[7] = ft_init_img(data,
+			"./assets/perso/yuji_portal_inactivate.xpm");
 	if (!data->img[7])
 		return (ft_free_img(data, 7), ft_free_data(data), 1);
 	data->img[8] = ft_init_img(data, "./assets/perso/yuji_revert_portal.xpm");
@@ -129,7 +130,7 @@ t_mlx	*ft_init_data(char *map, char **map_tab)
 	data->img[1] = ft_init_img(data, "./assets/textures/floor.xpm");
 	if (!data->img[1])
 		return (ft_free_img(data, 1), ft_free_data(data), NULL);
-	ft_init_data_2(data, map, map_tab);
 	ft_init_data_img(data);
+	ft_init_data_2(data, map, map_tab);
 	return (data);
 }
